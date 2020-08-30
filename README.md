@@ -14,31 +14,16 @@ Key Words : Magnetic Resonance Imaging, brain tumor segmentation, deep learning,
 
 ## Method 
 
-  Firstly, group convolution was used to replace conventional convolution
-significantly the parameters and segmentation accuracy because memory
-consumption is negatively correlated with batch size. batch size usually means
-convergence stability and training effect in 3D convolutional neural networks.
+  First, group convolution was used to replace conventional convolution for significantly reducing the parameters and improving segmentation accuracy because memory consumption is negatively correlated with batch size. A large batch size usually means enhanced convergence stability and training effect in 3D convolutional neural networks. 
+  
 <div  align="center">  
  <img src="https://github.com/easthorse/brain-tumor-segmentation-based-on-group-convolution/blob/base/figure/Figure4.png"
      align=center/>
 </div>
 <center>Figure 4 A structural diagram of group convolution and Multi-Fiber units ((a) schematic diagram of two consecutive convolutions; (b)schematic diagram of two group convolution layers with a number of groups of three; (c) architecture details of Multi-Fiber unit)</center>
-  Then, were used to enhance the information fusion the groups  compensate for the
-poor communication caused by group convolution was used to alleviate the poor
-training performance due to the small batch size. Aiming at the case  the have
-different in segmentation, a weighted function consisting of Dice and Jaccard
-was proposed to improve the segmentation accuracy of the that difficult to
-segment under the premise of maintaining the high precision of the easily
-segmented and accelerate the model convergence speed. One of the most challenging
-parts of the task is to distinguish between small blood vessels in the tumor
-and. This is particularly  for the labels may not have enhanced tumor at all. If
-neither the ground truth nor the prediction has an enhanced area, the score of
-the enhancement area is 1. Conversely, in patients who did not have enhanced
-tumors in the ground truth, only a single false-positive voxel would result in a
-score of 0. , we the prediction results set a threshold for the number of voxels
-in the tumor-enhanced area. When the number of voxels in the tumor-enhanced area
-is less than the threshold, these voxels would bemerged into the tumor core
-area, the  score of and tumor core.
+  
+  Then, multifiber and channel shuffle units were used to enhance the information fusion among the groups and compensate for the poor communication caused by group convolution. Synchronized cross-GPU batch normalization was used to alleviate the poor training performance of 3D convolutional neural networks due to the small batch size and utilize the advantages of multigraphics collaborative computing. Aiming at the case in which the subregions have different difficulties in segmentation, a weighted mixed-loss function consisting of Dice and Jaccard losses was proposed to improve the segmentation accuracy of the subregions that are difficult to segment under the premise of maintaining the high precision of the easily segmented subregions and accelerate the model convergence speed. One of the most challenging parts of the task is to distinguish between small blood vessels in the tumor core and enhanced-tumor areas. This process is particularly difficult for the labels that may not have enhanced tumor at all. If neither the ground truth nor the prediction has an enhanced area, the Dice score of the enhancement area is 1. Conversely, in patients who did not have enhanced tumors in the ground truth, only a single false-positive voxel would result in a Dice score of 0. Hence, we postprocessed the prediction results, that is, we set a threshold for the number of voxels in the tumor-enhanced area. When the number of voxels in the tumor-enhanced area is less than the threshold, these voxels would be merged into the tumor core area, thereby improving the Dice score of the tumor-enhanced and tumor core areas.
+  
 <div  align="center">  
  <img src="https://github.com/easthorse/brain-tumor-segmentation-based-on-group-convolution/blob/base/figure/Figure2.png"
      align=center/>
@@ -52,24 +37,10 @@ area, the  score of and tumor core.
 <center>Figure 3 Schematic diagram of MFS unit based on group convolution and residual structure
 ((a) MFS unit when channels numbers and size of the input layer are same as output layer’s ;(b) MFS unit when channels numbers and the size of the input layer are the same as the output layer’s )
 </center>
+
 ## Result
 
-  To verify the overall performance of the algorithm, we first conducted a
-cross-validation evaluation on the training set of public brain tumor dataset
-BraTS2018. The average of the proposed algorithm in the tumor, tumor core, and
-can reach 89.52%, 82.74%, 77.19%, respectively. For fairness, experiment was
-also conducted on the BraTS2018 validation set. We used the trained network to
-segment the unlabeled samples for prediction, them into the corresponding
-format, and uploaded them to the BraTS online server. The segmentation results
-were provided by the server after calculation and analysis. The proposed
-algorithm achieves average of 90.67%, 85.06%, and 80.41%. The and floating point
-operations are 3.2 M and 20.51 G, respectively. Compared with the classic 3D
-U-Net, our algorithm average scores by 2.14%, 13.29%, 4.45%. Moreover, the
-parameters and floating point operations are reduced by 5 and 81 times,
-respectively. Compared with the won the first place in 2018 Multimodal Tumor
-Segmentation Challenge, the average scores are reduced by 0.01%, 0.96%, and
-1.32%.  the parameters and floating point operations are reduced by 12 and 73
-times, respectively,  more practical value.
+  TTo verify the overall performance of the algorithm, we first conducted a fivefold cross-validation evaluation on the training set of the public brain tumor dataset BraTS2018. The average Dice scores of the proposed algorithm in the entire tumor, tumor core, and enhanced tumor areas can reach 89.52%, 82.74%, and 77.19%, respectively. For fairness, an experiment was also conducted on the BraTS2018 validation set. We used the trained network to segment the unlabeled samples for prediction, converted them into the corresponding format, and uploaded them to the BraTS online server. The segmentation results were provided by the server after calculation and analysis. The proposed algorithm achieves average Dice scores of 90.67%, 85.06%, and 80.41%. The parameters and floating point operations are 3.2 M and 20.51 G, respectively. Compared with the classic 3D U-Net, our algorithm shows higher average Dice scores by 2.14%, 13.29%, and 4.45%. Moreover, the parameters and floating point operations are reduced by 5 and 81 times, respectively. Compared with the state-of-the-art approach that won the first place in the 2018 Multimodal Brain Tumor Segmentation Challenge, the average Dice scores are reduced by only 0.01%, 0.96%, and 1.32%. Nevertheless, the parameters and floating point operations are reduced by 12 and 73 times, respectively, indicating a more practical value. Conclusion Aiming at the problems of large memory consumption and slow segmentation speed in the field of computer-aided brain tumor segmentation, an algorithm combining group convolution and channel shuffle unit is proposed. The punishment intensity of sparse class classification error to model is improved using the weighted mixed loss function to balance the training intensity of different segmentation difficulty categories effectively. The experimental results show that the algorithm can significantly reduce the computational cost while maintaining high accuracy and provide a powerful reference for clinicians in brain tumor segmentation.
 
 Table 1 Comparison of various algorithms on the BraTS2018 validation set.
 
