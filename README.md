@@ -36,7 +36,7 @@ align=center/>
  <img src="https://github.com/easthorse/brain-tumor-segmentation-based-on-group-convolution/blob/base/figure/Figure2.png" width = "500" height = "250"
      align=center/>
 </div>  
-<p align="center">Figure 2 Schematic diagram of the complete network structure </p>  
+<p align="center">Figure 4 Schematic diagram of the complete network structure </p>  
 
 <div  align="center">  
  <img src="https://github.com/easthorse/brain-tumor-segmentation-based-on-group-convolution/blob/base/figure/Figure3.png" width = "455" height = "400"
@@ -64,7 +64,7 @@ align=center/>
   | NVDLMED                    | 40.06         | 1495.53   | 81.73     | 90.68     | 86.02     | 3.82     | 4.41     | 6.84     |
 
 <div  align="center">  
- <img src="https://github.com/easthorse/brain-tumor-segmentation-based-on-group-convolution/blob/base/figure/Figure7.png"
+ <img src="https://github.com/easthorse/brain-tumor-segmentation-based-on-group-convolution/blob/base/figure/Figure7.png" width = "707" height = "450"
      align=center/>
 </div>  
 <p align="center">Figure 6 The visual comparison of MRI brain tumor segmentation results in horizontal plane, sagittal plane, and coronal plane. The regions in red represent the enhancing tumor and regions in blue represent the necrotic and non-enhancing tumor and the regions in green represent the edema ((a) FLAIR modality of the brain tumor MRI;(b) Segmentation results of classic 3D U-Net;(c) The segmentation results of Our algorithm;(d) The segmentation results manually labeled by experts)</p>  
