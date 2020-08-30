@@ -9,10 +9,10 @@ Key Words : Magnetic Resonance Imaging, brain tumor segmentation, deep learning,
 <div  align="center">  
  <img src="https://github.com/easthorse/brain-tumor-segmentation-based-on-group-convolution/blob/base/figure/Figure1.png"
      align=center/>
-</div>
+
 
 <center>Figure 1 MRI images in different modes（（a）FLAIR;（b）T1;（c）TIC;（d）T2) </center>
-
+</div>
 
 ## Method 
 
