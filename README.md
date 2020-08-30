@@ -76,7 +76,7 @@ align=center/>
 
 ## Conclusion
 
- **Aiming at the problems of large memory and slow segmentation speed in the
+ &emsp;**Aiming at the problems of large memory and slow segmentation speed in the
 field of computer-aided brain tumor segmentation, an algorithm combining group
 convolution and channel shuffle unit is proposed punishment intensity of sparse
 class classification error to model is improved  the weighted mixed loss
