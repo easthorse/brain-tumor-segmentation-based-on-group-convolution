@@ -4,7 +4,7 @@ Key Words : Magnetic Resonance Imaging, brain tumor segmentation, deep learning,
 
 ## Overview
 
-Brain tumor is a serious threat to human health.  invasive growth of brain
+  Brain tumor is a serious threat to human health.  invasive growth of brain
 tumor, when it occupies a certain space in the skull, will lead to increased
 intracranial pressure and compression of brain tissue, which will damage the
 central nerve and even threaten the life. Therefore, effective brain tumor
@@ -23,7 +23,7 @@ training speed. problems, we propose a lightweight segmentation algorithm.
 
 ## Method 
 
-First, group convolution was used to replace conventional convolution
+  Firstly, group convolution was used to replace conventional convolution
 significantly the parameters and segmentation accuracy because memory
 consumption is negatively correlated with batch size. batch size usually means
 convergence stability and training effect in 3D convolutional neural networks.
@@ -44,9 +44,9 @@ in the tumor-enhanced area. When the number of voxels in the tumor-enhanced area
 is less than the threshold, these voxels would bemerged into the tumor core
 area, the  score of and tumor core.
 
-## **Result** 
+## Result
 
-To verify the overall performance of the algorithm, we first conducted a
+  To verify the overall performance of the algorithm, we first conducted a
 cross-validation evaluation on the training set of public brain tumor dataset
 BraTS2018. The average of the proposed algorithm in the tumor, tumor core, and
 can reach 89.52%, 82.74%, 77.19%, respectively. For fairness, experiment was
@@ -65,7 +65,7 @@ times, respectively,  more practical value.
 
 Table 1 Comparison of various algorithms on the BraTS2018 validation set.
 
-| Methods                    | Parameters(M) | FLOPs(G)  |    |          Dice (%)            |             HD95               |
+| Methods                    | Parameters(M) | FLOPs(G)  |  |  Dice (%)  |            |          |     HD95        |          |
 |----------------------------|---------------|-----------|-----------|-----------|-----------|----------|----------|----------|
 |                            |               |           | ET        | WT        | TC        | ET       | WT       | TC       |
 | **Ours**                   | **3.2**       | **20.51** | **80.41** | **90.67** | **85.06** | **2.51** | **4.13** | **5.79** |
@@ -75,6 +75,7 @@ Table 1 Comparison of various algorithms on the BraTS2018 validation set.
 | Partially Reversible U-Net | 3.01          | 956.2     | 80.56     | 90.61     | 85.71     | 3.35     | 5.61     | 7.83     |
 | No New-Net                 | 12.43         | 296.83    | 80.66     | 90.92     | 85.22     | 2.74     | 5.83     | 7.2      |
 | NVDLMED                    | 40.06         | 1495.53   | 81.73     | 90.68     | 86.02     | 3.82     | 4.41     | 6.84     |
+
 
 ## Conclusion
 
