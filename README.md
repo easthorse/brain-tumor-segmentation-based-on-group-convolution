@@ -11,7 +11,7 @@ Key Words : Magnetic Resonance Imaging, brain tumor segmentation, deep learning,
      align=center/>
 
 
-<center>Figure 1 MRI images in different modes（（a）FLAIR;（b）T1;（c）TIC;（d）T2) </center>
+<center>Figure 1 MRI images in different modes </center>
 </div>
 
 ## Method 
@@ -21,9 +21,10 @@ Key Words : Magnetic Resonance Imaging, brain tumor segmentation, deep learning,
 <div  align="center">  
  <img src="https://github.com/easthorse/brain-tumor-segmentation-based-on-group-convolution/blob/base/figure/Figure4.png"
      align=center/>
-</div>
+
 
 <center> Figure 4 A structural diagram of group convolution and Multi-Fiber units ((a) schematic diagram of two consecutive convolutions; (b)schematic diagram of two group convolution layers with a number of groups of three; (c) architecture details of Multi-Fiber unit) </center>
+  </div>
   
   Then, multifiber and channel shuffle units were used to enhance the information fusion among the groups and compensate for the poor communication caused by group convolution. 
   <div  align="center">  
@@ -37,17 +38,18 @@ Key Words : Magnetic Resonance Imaging, brain tumor segmentation, deep learning,
 <div  align="center">  
  <img src="https://github.com/easthorse/brain-tumor-segmentation-based-on-group-convolution/blob/base/figure/Figure2.png"
      align=center/>
-</div>
+
 <center>Figure 2 Schematic diagram of the complete network structure</center>
+</div>
 <div  align="center">  
  <img src="https://github.com/easthorse/brain-tumor-segmentation-based-on-group-convolution/blob/base/figure/Figure3.png"
      align=center/>
-</div>
+
 
 <center>Figure 3 Schematic diagram of MFS unit based on group convolution and residual structure
 ((a) MFS unit when channels numbers and size of the input layer are same as output layer’s ;(b) MFS unit when channels numbers and the size of the input layer are the same as the output layer’s )
 </center>
-
+</div>
 ## Result
 
   TTo verify the overall performance of the algorithm, we first conducted a fivefold cross-validation evaluation on the training set of the public brain tumor dataset BraTS2018. The average Dice scores of the proposed algorithm in the entire tumor, tumor core, and enhanced tumor areas can reach 89.52%, 82.74%, and 77.19%, respectively. For fairness, an experiment was also conducted on the BraTS2018 validation set. We used the trained network to segment the unlabeled samples for prediction, converted them into the corresponding format, and uploaded them to the BraTS online server. The segmentation results were provided by the server after calculation and analysis. The proposed algorithm achieves average Dice scores of 90.67%, 85.06%, and 80.41%. The parameters and floating point operations are 3.2 M and 20.51 G, respectively. Compared with the classic 3D U-Net, our algorithm shows higher average Dice scores by 2.14%, 13.29%, and 4.45%. Moreover, the parameters and floating point operations are reduced by 5 and 81 times, respectively. Compared with the state-of-the-art approach that won the first place in the 2018 Multimodal Brain Tumor Segmentation Challenge, the average Dice scores are reduced by only 0.01%, 0.96%, and 1.32%. Nevertheless, the parameters and floating point operations are reduced by 12 and 73 times, respectively, indicating a more practical value. Conclusion Aiming at the problems of large memory consumption and slow segmentation speed in the field of computer-aided brain tumor segmentation, an algorithm combining group convolution and channel shuffle unit is proposed. The punishment intensity of sparse class classification error to model is improved using the weighted mixed loss function to balance the training intensity of different segmentation difficulty categories effectively. The experimental results show that the algorithm can significantly reduce the computational cost while maintaining high accuracy and provide a powerful reference for clinicians in brain tumor segmentation.
@@ -68,9 +70,9 @@ Table 1 Comparison of various algorithms on the BraTS2018 validation set.
 <div  align="center">  
  <img src="https://github.com/easthorse/brain-tumor-segmentation-based-on-group-convolution/blob/base/figure/Figure7.png"
      align=center/>
-</div>
-<center>Figure 7 The visual comparison of MRI brain tumor segmentation results in horizontal plane, sagittal plane, and coronal plane. The regions in red represent the enhancing tumor and regions in blue represent the necrotic and non-enhancing tumor and the regions in green represent the edema ((a) FLAIR modality of the brain tumor MRI;(b) Segmentation results of classic 3D U-Net;(c) The segmentation results of Our algorithm;(d) The segmentation results manually labeled by experts)</center>
 
+<center>Figure 7 The visual comparison of MRI brain tumor segmentation results in horizontal plane, sagittal plane, and coronal plane. The regions in red represent the enhancing tumor and regions in blue represent the necrotic and non-enhancing tumor and the regions in green represent the edema ((a) FLAIR modality of the brain tumor MRI;(b) Segmentation results of classic 3D U-Net;(c) The segmentation results of Our algorithm;(d) The segmentation results manually labeled by experts)</center>
+</div>
 ## Conclusion
 
 ** **Aiming at the problems of large memory and slow segmentation speed in the
