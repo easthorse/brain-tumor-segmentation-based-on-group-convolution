@@ -10,7 +10,9 @@ Key Words : Magnetic Resonance Imaging, brain tumor segmentation, deep learning,
  <img src="https://github.com/easthorse/brain-tumor-segmentation-based-on-group-convolution/blob/base/figure/Figure1.png"
      align=center/>
 </div>
+
 <center>Figure 1 MRI images in different modes（（a）FLAIR;（b）T1;（c）TIC;（d）T2) </center>
+
 
 ## Method 
 
@@ -20,9 +22,17 @@ Key Words : Magnetic Resonance Imaging, brain tumor segmentation, deep learning,
  <img src="https://github.com/easthorse/brain-tumor-segmentation-based-on-group-convolution/blob/base/figure/Figure4.png"
      align=center/>
 </div>
-<center>Figure 4 A structural diagram of group convolution and Multi-Fiber units ((a) schematic diagram of two consecutive convolutions; (b)schematic diagram of two group convolution layers with a number of groups of three; (c) architecture details of Multi-Fiber unit)</center>
+
+<center> Figure 4 A structural diagram of group convolution and Multi-Fiber units ((a) schematic diagram of two consecutive convolutions; (b)schematic diagram of two group convolution layers with a number of groups of three; (c) architecture details of Multi-Fiber unit) </center>
   
-  Then, multifiber and channel shuffle units were used to enhance the information fusion among the groups and compensate for the poor communication caused by group convolution. Synchronized cross-GPU batch normalization was used to alleviate the poor training performance of 3D convolutional neural networks due to the small batch size and utilize the advantages of multigraphics collaborative computing. Aiming at the case in which the subregions have different difficulties in segmentation, a weighted mixed-loss function consisting of Dice and Jaccard losses was proposed to improve the segmentation accuracy of the subregions that are difficult to segment under the premise of maintaining the high precision of the easily segmented subregions and accelerate the model convergence speed. One of the most challenging parts of the task is to distinguish between small blood vessels in the tumor core and enhanced-tumor areas. This process is particularly difficult for the labels that may not have enhanced tumor at all. If neither the ground truth nor the prediction has an enhanced area, the Dice score of the enhancement area is 1. Conversely, in patients who did not have enhanced tumors in the ground truth, only a single false-positive voxel would result in a Dice score of 0. Hence, we postprocessed the prediction results, that is, we set a threshold for the number of voxels in the tumor-enhanced area. When the number of voxels in the tumor-enhanced area is less than the threshold, these voxels would be merged into the tumor core area, thereby improving the Dice score of the tumor-enhanced and tumor core areas.
+  Then, multifiber and channel shuffle units were used to enhance the information fusion among the groups and compensate for the poor communication caused by group convolution. 
+  <div  align="center">  
+ <img src="https://github.com/easthorse/brain-tumor-segmentation-based-on-group-convolution/blob/base/figure/Figure5.png"
+ <center>figure 5 A schematic diagram of the Channel Shuffle unit. ((a) schematic diagram of group convolution without channel shuffle unit; (b) implementation principle diagram of channel shuffle unit; (c) equivalent schematic diagram of group convolution added to channel shuffle unit)  </center>
+     align=center/>
+</div>
+
+  Synchronized cross-GPU batch normalization was used to alleviate the poor training performance of 3D convolutional neural networks due to the small batch size and utilize the advantages of multigraphics collaborative computing. Aiming at the case in which the subregions have different difficulties in segmentation, a weighted mixed-loss function consisting of Dice and Jaccard losses was proposed to improve the segmentation accuracy of the subregions that are difficult to segment under the premise of maintaining the high precision of the easily segmented subregions and accelerate the model convergence speed. One of the most challenging parts of the task is to distinguish between small blood vessels in the tumor core and enhanced-tumor areas. This process is particularly difficult for the labels that may not have enhanced tumor at all. If neither the ground truth nor the prediction has an enhanced area, the Dice score of the enhancement area is 1. Conversely, in patients who did not have enhanced tumors in the ground truth, only a single false-positive voxel would result in a Dice score of 0. Hence, we postprocessed the prediction results, that is, we set a threshold for the number of voxels in the tumor-enhanced area. When the number of voxels in the tumor-enhanced area is less than the threshold, these voxels would be merged into the tumor core area, thereby improving the Dice score of the tumor-enhanced and tumor core areas.
   
 <div  align="center">  
  <img src="https://github.com/easthorse/brain-tumor-segmentation-based-on-group-convolution/blob/base/figure/Figure2.png"
