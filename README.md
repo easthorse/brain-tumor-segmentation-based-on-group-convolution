@@ -39,7 +39,7 @@ align=center/>
 
 
 <div  align="center">  
- <img src="https://github.com/easthorse/brain-tumor-segmentation-based-on-group-convolution/blob/base/figure/Figure3.png"
+ <img src="https://github.com/easthorse/brain-tumor-segmentation-based-on-group-convolution/blob/base/figure/Figure3.png" width = "500" height = "250"
      align=center/>
 </div>  
 
@@ -52,7 +52,7 @@ align=center/>
 
 <p align="center">Table 1 Comparison of various algorithms on the BraTS2018 validation set.</p>
 
-          | Methods                    | Parameters(M) | FLOPs(G)  |  |  Dice   |            |          |     HD95        |          |
+  | Methods                    | Parameters(M) | FLOPs(G)  |  |  Dice   |            |          |     HD95        |          |
   |:---------------------------:|:---------------:|:-----------:|:-----------:|:-----------:|:-----------:|----------|:----------:|:----------:|
   |                            |               |           | ET        | WT        | TC        | ET       | WT       | TC       |
   | **Ours**                   | **3.2**       | **20.51** | **80.41** | **90.67** | **85.06** | **2.51** | **4.13** | **5.79** |
