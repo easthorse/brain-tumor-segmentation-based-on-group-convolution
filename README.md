@@ -65,6 +65,11 @@ Table 1 Comparison of various algorithms on the BraTS2018 validation set.
 | No New-Net                 | 12.43         | 296.83    | 80.66     | 90.92     | 85.22     | 2.74     | 5.83     | 7.2      |
 | NVDLMED                    | 40.06         | 1495.53   | 81.73     | 90.68     | 86.02     | 3.82     | 4.41     | 6.84     |
 
+<div  align="center">  
+ <img src="https://github.com/easthorse/brain-tumor-segmentation-based-on-group-convolution/blob/base/figure/Figure7.png"
+     align=center/>
+</div>
+<center>Figure 7 The visual comparison of MRI brain tumor segmentation results in horizontal plane, sagittal plane, and coronal plane. The regions in red represent the enhancing tumor and regions in blue represent the necrotic and non-enhancing tumor and the regions in green represent the edema ((a) FLAIR modality of the brain tumor MRI;(b) Segmentation results of classic 3D U-Net;(c) The segmentation results of Our algorithm;(d) The segmentation results manually labeled by experts)</center>
 
 ## Conclusion
 
