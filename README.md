@@ -21,7 +21,7 @@ high requirements on hardware resources usually a compromise in the network
 structure that adapts the given memory budget at the expense of accuracy or
 training speed. problems, we propose a lightweight segmentation algorithm.
 
-**Method **
+## Method 
 
 First, group convolution was used to replace conventional convolution
 significantly the parameters and segmentation accuracy because memory
