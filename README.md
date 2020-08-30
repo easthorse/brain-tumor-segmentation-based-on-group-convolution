@@ -4,27 +4,13 @@ Key Words : Magnetic Resonance Imaging, brain tumor segmentation, deep learning,
 
 ## Overview
 
-  Brain tumor is a serious threat to human health.  invasive growth of brain
-tumor, when it occupies a certain space in the skull, will lead to increased
-intracranial pressure and compression of brain tissue, which will damage the
-central nerve and even threaten the life. Therefore, effective brain tumor
-diagnosis and timely treatment are of great significance  improving the quality
-of life and prolonging the  life. -assisted segmentation of brain tumor is
-necessary for the prognosis and treatment of patients. However, although
-brain-related research has made great progress,  the contour information of
-tumor and effective each in MRISince 2012, with the development of deep learning
-and the improvement of related hardware performance, segmentation based on
-neural  gradually become the mainstream. 3D convolutional neural widely used in
-the field of brain tumor segmentation because of advantages of sufficient
-spatial feature extraction and high segmentation effect.  memory consumption and
-high requirements on hardware resources usually a compromise in the network
-structure that adapts the given memory budget at the expense of accuracy or
-training speed. problems, we propose a lightweight segmentation algorithm.
+  Brain tumor is a serious threat to human health. The invasive growth of brain tumor, when it occupies a certain space in the skull, will lead to increased intracranial pressure and compression of brain tissue, which will damage the central nerve and even threaten the patient’s life. Therefore, effective brain tumor diagnosis and timely treatment are of great significance to improving the patient’s quality of life and prolonging the patient’s life. Computer-assisted segmentation of brain tumor is necessary for the prognosis and treatment of patients. However, although brain-related research has made great progress, automatic identification of the contour information of tumor and effective segmentation of each subregion in MRI remain difficult due to the highly heterogeneous appearance, random location, and large difference in the number of voxels in each subregion of the tumor and the high degree of gray-scale similarity between the tumor tissue and neighboring normal brain tissue. Since 2012, with the development of deep learning and the improvement of related hardware performance, segmentation methods based on neural networks have gradually become the mainstream. In particular, 3D convolutional neural networks are widely used in the field of brain tumor segmentation because of their advantages of sufficient spatial feature extraction and high segmentation effect. Nonetheless, their large memory consumption and high requirements on hardware resources usually require making a compromise in the network structure that adapts to the given memory budget at the expense of accuracy or training speed. To address such problems, we propose a lightweight segmentation algorithm in this paper.
 
 <div  align="center">  
  <img src="https://github.com/easthorse/brain-tumor-segmentation-based-on-group-convolution/blob/base/figure/Figure1.png"
      align=center/>
 </div>
+<center>Figure 1 MRI images in different modes（（a）FLAIR;（b）T1;（c）TIC;（d）T2) </center>
 
 ## Method 
 
@@ -32,13 +18,18 @@ training speed. problems, we propose a lightweight segmentation algorithm.
 significantly the parameters and segmentation accuracy because memory
 consumption is negatively correlated with batch size. batch size usually means
 convergence stability and training effect in 3D convolutional neural networks.
-Then, were used to enhance the information fusion the groups  compensate for the
-poor communication caused by group convolution. was used to alleviate the poor
+<div  align="center">  
+ <img src="https://github.com/easthorse/brain-tumor-segmentation-based-on-group-convolution/blob/base/figure/Figure4.png"
+     align=center/>
+</div>
+<center>Figure 4 A structural diagram of group convolution and Multi-Fiber units ((a) schematic diagram of two consecutive convolutions; (b)schematic diagram of two group convolution layers with a number of groups of three; (c) architecture details of Multi-Fiber unit)</center>
+  Then, were used to enhance the information fusion the groups  compensate for the
+poor communication caused by group convolution was used to alleviate the poor
 training performance due to the small batch size. Aiming at the case  the have
 different in segmentation, a weighted function consisting of Dice and Jaccard
 was proposed to improve the segmentation accuracy of the that difficult to
 segment under the premise of maintaining the high precision of the easily
-segmented and accelerate the model convergence speed.  of the most challenging
+segmented and accelerate the model convergence speed. One of the most challenging
 parts of the task is to distinguish between small blood vessels in the tumor
 and. This is particularly  for the labels may not have enhanced tumor at all. If
 neither the ground truth nor the prediction has an enhanced area, the score of
@@ -48,7 +39,19 @@ score of 0. , we the prediction results set a threshold for the number of voxels
 in the tumor-enhanced area. When the number of voxels in the tumor-enhanced area
 is less than the threshold, these voxels would bemerged into the tumor core
 area, the  score of and tumor core.
+<div  align="center">  
+ <img src="https://github.com/easthorse/brain-tumor-segmentation-based-on-group-convolution/blob/base/figure/Figure2.png"
+     align=center/>
+</div>
+<center>Figure 2 Schematic diagram of the complete network structure</center>
+<div  align="center">  
+ <img src="https://github.com/easthorse/brain-tumor-segmentation-based-on-group-convolution/blob/base/figure/Figure3.png"
+     align=center/>
+</div>
 
+<center>Figure 3 Schematic diagram of MFS unit based on group convolution and residual structure
+((a) MFS unit when channels numbers and size of the input layer are same as output layer’s ;(b) MFS unit when channels numbers and the size of the input layer are the same as the output layer’s )
+</center>
 ## Result
 
   To verify the overall performance of the algorithm, we first conducted a
