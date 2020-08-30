@@ -21,6 +21,11 @@ high requirements on hardware resources usually a compromise in the network
 structure that adapts the given memory budget at the expense of accuracy or
 training speed. problems, we propose a lightweight segmentation algorithm.
 
+<div  align="center">  
+ <img src="https://github.com/easthorse/brain-tumor-segmentation-based-on-group-convolution/blob/base/figure/Figure1.png"
+     align=center/>
+</div>
+
 ## Method 
 
   Firstly, group convolution was used to replace conventional convolution
