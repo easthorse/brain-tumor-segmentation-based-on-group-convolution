@@ -23,9 +23,7 @@ Key Words : Magnetic Resonance Imaging, brain tumor segmentation, deep learning,
   
 
   </div>  
-  <center> Figure 4 A structural diagram of group convolution and Multi-Fiber units ((a) schematic diagram of two consecutive convolutions; (b)schematic diagram of two group convolution layers with a number of groups of three; (c) architecture details of Multi-Fiber unit) </center>  
-  
-  
+  <p align="center">Figure 4 A structural diagram of group convolution and Multi-Fiber units ((a) schematic diagram of two consecutive convolutions; (b)schematic diagram of two group convolution layers with a number of groups of three; (c) architecture details of Multi-Fiber unit)</p>  
   Then, multifiber and channel shuffle units were used to enhance the information fusion among the groups and compensate for the poor communication caused by group convolution. 
   <div  align="center">  
  <img src="https://github.com/easthorse/brain-tumor-segmentation-based-on-group-convolution/blob/base/figure/Figure5.png"
